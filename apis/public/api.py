@@ -1,7 +1,7 @@
-import aiohttp
 import json
 
 from typing import Dict, cast
+from apis.common_types import OrderCoinCurrency, OrderCurrency, PaymentCurrency
 from apis.public.types import (
     CoinInfoData,
     CoinOrderPricesData,
@@ -9,21 +9,10 @@ from apis.public.types import (
     FailResponse,
     JsonFailResponse,
     JsonSuccessResponse,
-    OrderCoinCurrency,
-    OrderCurrency,
-    PaymentCurrency,
     SuccessResponse,
     TransactionData,
 )
-
-
-async def request_get_json(
-    url: str,
-    headers={"accept": "application/json"},
-):
-    async with aiohttp.ClientSession() as session:
-        async with session.get(url=url, headers=headers) as resp:
-            return await resp.json()
+from apis.util import request_get_json
 
 
 def show_json(json_data):
