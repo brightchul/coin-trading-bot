@@ -1,6 +1,6 @@
 from typing import Any, Generic, Literal, TypeVar, TypedDict
-
 from pydantic import BaseModel
+from apis.common_types import OrderType
 
 
 RequestReturnType = Literal["json", "text"]
@@ -82,7 +82,7 @@ class CoinOrderPricesData(BaseModel):
 class TransactionData(BaseModel):
     transaction_date: str
     """거래 체결 시간 타임 스탬프 (YYYY-MM-DD HH:MM:SS)"""
-    type: Literal["bid", "ask"]
+    type: OrderType
     """거래 유형 bid : 매수 ask : 매도"""
     units_traded: str
     """Currency 거래량"""

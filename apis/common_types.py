@@ -256,3 +256,5 @@ OrderCoinCurrency = Literal[
 OrderCurrency = Literal["ALL"] | OrderCoinCurrency
 
 PaymentCurrency = Literal["KRW", "BTC"]
+
+OrderType = Literal["bid", "ask"]

@@ -3,7 +3,12 @@ import hmac, hashlib
 import math
 import time
 import urllib.parse
-from apis.common_types import OrderCoinCurrency, OrderCurrency, PaymentCurrency
+from apis.common_types import (
+    OrderCoinCurrency,
+    OrderCurrency,
+    OrderType,
+    PaymentCurrency,
+)
 from apis.util import request_post_json
 
 from config import config
@@ -119,7 +124,7 @@ async def 최근_거래정보_조회(params):
 class 거래_주문내역_조회_params(TypedDict):
     order_id: NotRequired[str]
     """매수/매도 주문 등록된 주문번호 (입력 시 해당 데이터만 추출)"""
-    type: NotRequired[Literal["bid", "ask"]]
+    type: NotRequired[OrderType]
     """거래유형 (bid : 매수 ask : 매도)"""
     count: NotRequired[int]
     """1~1000 (기본값 : 100)"""
