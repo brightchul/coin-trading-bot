@@ -1,6 +1,6 @@
 from typing import Any, Generic, Literal, TypeVar, TypedDict
 from pydantic import BaseModel
-from apis.common_types import OrderType
+from apis.common_types import OrderCurrency, OrderType, PaymentCurrency
 
 
 RequestReturnType = Literal["json", "text"]
